@@ -1,8 +1,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var User = require('./user.js');
-
 /**
  * Post Schema
  * title {String}   - the title of the post
