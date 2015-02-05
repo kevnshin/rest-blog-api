@@ -13,4 +13,14 @@ router.get('/', function (req, res) {
   })
 })
 
+
+router.get('/:id', function (req, res) {
+  Post.findById(req.params.id, function (err, post) {
+    if(err) {
+      console.log(err);
+    }
+    res.json({"post": post});
+  })
+})
+
 module.exports = router;
