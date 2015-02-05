@@ -8,7 +8,6 @@ router.get('/', function (req, res) {
     if(err) {
       console.log(err);
     }
-
     res.json({"Posts": posts});
   })
 })
@@ -21,6 +20,15 @@ router.get('/:id', function (req, res) {
     }
     res.json({"post": post});
   })
+})
+
+router.delete('/:id', function (req, res) {
+  Post.findByIdAndRemove(req.params.id, function (err, blogpost) {
+    if(err) {
+      return console.log(err);
+    }
+    res.redirect('/');
+  });
 })
 
 module.exports = router;
