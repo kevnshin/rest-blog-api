@@ -1,15 +1,16 @@
 var express = require('express');
 var router = express.Router();
 
-var User = require('../models/post');
+var Post = require('../models/post');
 
-/**
- * This is an example of how to use the express router
- * It is very similar to app.get!
- *
- * router.get('/', function(req, res){
- *   res.json({"Hello": "World!"})
- * });
- */
+router.get('/', function (req, res) {
+  Post.find({}, function (err, posts) {
+    if(err) {
+      console.log(err);
+    }
+
+    res.json({"Posts": posts});
+  })
+})
 
 module.exports = router;
